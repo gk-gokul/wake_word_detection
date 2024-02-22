@@ -13,13 +13,13 @@ In short, Wake word is a point in time from when we have to start doing speech s
 In this project, we have created a Wake word detection using TensorFlow. Which has an awesome accuracy of 98% on the test data. You can even train this Deep learning Model on
 whatever Wake Word you like. So, let us see how you can do it...
 
-### Step 1: `PreparingData.py`:
+### Step 1: `Data Preparation`:
 <br>
-First, go to the file PreparingData.py. It contains two function record_audio_and_save() and record_background_sound().
+First, go to the fileData Preaparation.py. It contains two function record_audio_and_save() and record_background_sound().
 
 
 `record_audio_and_save()`:- It records a audio of 2 seconds of you saying the Wake Word. It takes two parameters namely `n_times` and `save_path`. n_times is 'How many times it
-                            should record you saying the Wake Word?'. Default is set to 50. In save_path you have to provide the path to the directory where it can store generated
+                            should record you saying the Wake Word?'. Default is set to 100. In save_path you have to provide the path to the directory where it can store generated
                             `.wav` files.
                             
 `record_background_sound()`:- It records a audio of 2 seconds of the background sounds. It takes two parameters namely `n_times` and `save_path`. n_times is 'How many times it
@@ -28,14 +28,14 @@ First, go to the file PreparingData.py. It contains two function record_audio_an
  
  Note:- Don't provide the same directory to both the functions or it will overwrite the previous!
  
- ### Step 2: `PreprocessingData.py`:
+ ### Step 2: `Data Preprocessing`:
  
 In this file you don't have to do anything it will take all your audio files, pre-process it, make a pandas dataframe and save it as csv from where we will load it for
 training.
 
 Note:- If you have changed the directory of audio files from default `audio_data/` and `background_sound/` to some other. Don't forget it to change in this file too.
 
- ### Step 3: `training.py`:
+ ### Step 3: `Model Training`:
  
  Sit and relax! Let the model train...
  
@@ -49,7 +49,7 @@ _________________________________________________________________
 Layer (type)                 Output Shape              Param #
 =================================================================
 dense (Dense)                (None, 256)               10496
-_________________________________________________________________
+_____________  ____________________________________________________
 activation (Activation)      (None, 256)               0
 _________________________________________________________________
 dropout (Dropout)            (None, 256)               0
@@ -77,4 +77,4 @@ It will load the saved model and run the prediction every time it prints `Say No
 whether it has wake word or not!
 
 
-My advice is to go through to the each file and see what it does rather than blindly running them.
+
